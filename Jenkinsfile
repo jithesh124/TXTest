@@ -7,7 +7,7 @@ pipeline {
 
 
 '''
-        sh 'docker pull sys-tx-docker-local.artifactory.swg-devops.com/ibm-cics-tx-on-cloud:latest'
+        sh 'docker pull sys-tx-docker-local.artifactory.swg-devops.com/txseries:latest'
       }
     }
   }
