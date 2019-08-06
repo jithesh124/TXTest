@@ -24,7 +24,7 @@ pipeline {
         }
       }
     }
-    stage('') {
+    stage('docker_rediscli_build') {
       steps {
         sh '''docker build -t ibm-cics-tx-on-cloud/rediscli 
 
