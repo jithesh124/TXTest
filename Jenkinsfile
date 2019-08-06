@@ -11,8 +11,17 @@ pipeline {
       }
     }
     stage('docker_run') {
-      steps {
-        sh 'docker run -p 3271:3270 -p 1436:1435 -p 9443:9443 -t -e LICENSE=accept sys-tx-docker-local.artifactory.swg-devops.com/txseries:latest  '
+      parallel {
+        stage('docker_run') {
+          steps {
+            sh 'docker run -p 3271:3270 -p 1436:1435 -p 9443:9443 -t -e LICENSE=accept sys-tx-docker-local.artifactory.swg-devops.com/txseries:latest  '
+          }
+        }
+        stage('redis_server') {
+          steps {
+            sh 'docker run --name redisserv -d redis'
+          }
+        }
       }
     }
   }
