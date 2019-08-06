@@ -1,10 +1,5 @@
 pipeline {
-  agent {
-    dockerfile {
-      filename 'https://github.com/jithesh124/TXTest/blob/Dockerfile/Dockerfile'
-    }
-
-  }
+  agent none
   stages {
     stage('docker_pull') {
       steps {
