@@ -24,5 +24,12 @@ pipeline {
         }
       }
     }
+    stage('') {
+      steps {
+        sh '''docker build -t ibm-cics-tx-on-cloud/rediscli 
+
+--build-arg vip_redis_client_version=0.3.0   --build-arg redis_client_version=0.13.3 --build-arg redis_serv_addr=172.17.0.5 --build-arg redis_serv_port=6379 --build-arg redis_serv_type=REDIS /Users/jithesh/jithesh_work/cloud_work/redisDockerFile  '''
+      }
+    }
   }
 }
