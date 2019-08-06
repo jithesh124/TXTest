@@ -10,5 +10,10 @@ pipeline {
         sh 'docker pull sys-tx-docker-local.artifactory.swg-devops.com/txseries:latest'
       }
     }
+    stage('docker_run') {
+      steps {
+        sh 'docker run -p 3271:3270 -p 1436:1435 -p 9443:9443 -it -e LICENSE=accept sys-tx-docker-local.artifactory.swg-devops.com/txseries:latest  '
+      }
+    }
   }
 }
